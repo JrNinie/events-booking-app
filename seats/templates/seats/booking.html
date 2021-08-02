@@ -1,0 +1,34 @@
+{% extends 'seats/base.html' %}
+{% load static %}
+
+{% block content %}
+    {% if user_seatbooking_list %}
+        <table border="1">
+            <tr>
+                <th>Event</th>
+                <th>Date</th>
+                <th>Seat</th>
+                <th>Booked_at</th>
+                <th>Action</th>
+            {% for seatbooking in user_seatbooking_list %}
+                </tr>
+                    <td>{{seatbooking.event.name}}</td>
+                    <td>{{seatbooking.event.date}}</td>
+                    <td>{{seatbooking.seat.identifier}}</td>
+                    <td>{{seatbooking.created_at}}</td>
+                    <td>
+                        <a href="{% url 'seats:booking_delete' seatbooking.id %}">delete</a>
+                        <a href="{% url 'seats:booking_update' seatbooking.id %}">modify</a>
+                    </td>
+                <tr>
+            {% endfor %}
+            </tr>
+        </table>
+    {% else %}
+        <p>
+            Your seat booking list is empty, go to 
+            <a href="{% url 'seats:index'%}">event page </a>
+            for booking!
+        </p>
+    {% endif %}
+{% endblock %}

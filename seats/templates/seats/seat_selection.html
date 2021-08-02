@@ -1,0 +1,30 @@
+{% extends 'seats/base.html' %}
+{% load static %}
+
+{% block head %}
+  <link rel="stylesheet" type="text/css" href="{% static 'seats/seats.css' %}">
+{% endblock %}
+
+{% block content %}
+
+  <div class="title">
+    <h1>Confirm your selection</h1>
+  </div>
+
+  <div class="links">
+    <a href="/"> BACK </a>
+  </div>
+
+  <div class="seat-info-container">
+
+      {% if seat_id_list %}
+      {% for seat_id in seat_id_list %}
+      <div class="seat-info">
+        <tr> Seat = {{seat_id}} </tr>
+      </div>
+      {% endfor %}
+      {% endif %}
+
+  </div>
+
+{% endblock %}

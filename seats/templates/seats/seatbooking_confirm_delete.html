@@ -1,0 +1,17 @@
+{% extends 'seats/base.html' %}
+{% load static %}
+
+{% block content %}
+
+  <form method="post">{% csrf_token %}
+    <p>Are you sure you want to delete 
+      the seat "{{object.seat.identifier}}"
+      of event "{{ object.event.name }}"
+      for {{object.event.date}} ?
+    </p>
+    <input type="submit" value="Confirm">
+    <input type="submit" value="Cancel" name="cancel">
+    <!-- <button onclick="window.history.back();" class="btn btn-default" type="button">Cancel</button> -->
+  </form>
+
+{% endblock %}

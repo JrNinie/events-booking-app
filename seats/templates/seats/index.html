@@ -1,0 +1,18 @@
+{% extends 'seats/base.html' %}
+{% load static %}
+
+{% block head %}
+  <link rel="stylesheet" type="text/css" href="{% static 'seats/index.css' %}">
+{% endblock %}
+
+{% block content %}
+
+  <div class="event-selection-form"form> 
+    <form action="" class="event-selection-form" method="post">
+        {% csrf_token %}
+        {{ event_selection_form.as_p }}
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+{% endblock %}

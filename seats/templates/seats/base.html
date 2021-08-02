@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE HTML>
+
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="{% static 'seats/base.css' %}">
+
+    {% block head %}
+    {% endblock %}
+    
+    <div class="page-header">
+      <h1> Seat Selector </h1>
+    </div>
+
+    <div class="logout">
+      <a href="/accounts/logout/"> LOGOUT </a>
+    </div>
+    
+  </head>
+  <body>
+    <div class="content-container">
+      <div class="content">
+        {% block content %}
+        {% endblock %}
+      </div>
+    </div>
+  </body>
+</html>
