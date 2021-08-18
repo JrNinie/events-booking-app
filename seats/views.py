@@ -137,6 +137,7 @@ class BookingDeleteView(DeleteView):
             return super(BookingDeleteView, self).post(request, *args, **kwargs)
 
 
+@method_decorator(login_required, name="dispatch")
 class BookingUpdateView(UpdateView):
     model = Seatbooking
     fields = ["event", "seat"]
